@@ -6,7 +6,7 @@ This repository implements a client-only spreadsheet with editable cells, formul
 
 # Demo
 
-![Demo](/demo.gif)
+![Demo](/src/docs/demo.gif)
 
 ## Table of contents
 
