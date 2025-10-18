@@ -64,7 +64,11 @@ function CellComponentInner({
   const startEdit = useCallback(
     (evt?: React.SyntheticEvent) => {
       evt?.stopPropagation();
-      setDraft(cell?.formula ?? String(cell?.displayValue ?? ""));
+      setDraft(
+        cell && cell.formula && cell.formula !== ""
+          ? cell.formula
+          : String(cell?.displayValue ?? "")
+      );
       setIsEditing(true);
       onSelect(address);
     },
@@ -73,7 +77,11 @@ function CellComponentInner({
 
   const cancelEdit = useCallback(() => {
     setIsEditing(false);
-    setDraft(cell?.formula ?? String(cell?.displayValue ?? ""));
+    setDraft(
+      cell && cell.formula && cell.formula !== ""
+        ? cell.formula
+        : String(cell?.displayValue ?? "")
+    );
   }, [cell]);
 
   const commitEdit = useCallback(() => {
